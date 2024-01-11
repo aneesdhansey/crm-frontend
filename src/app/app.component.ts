@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-playground';
+
+  code = `Template <script>alert('Owned')</script>`;
 }

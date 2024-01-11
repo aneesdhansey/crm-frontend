@@ -1,0 +1,17 @@
+.customer-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.mat-form-field {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 15px; /* Adjust as needed */
+}
+
+.mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px; /* Adjust as needed */
+}

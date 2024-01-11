@@ -1,0 +1,50 @@
+<div class="flex justify-end align-center">
+  <button mat-raised-button color="primary" (click)="openAddDialog()">Add</button>
+</div>
+
+<mat-table [dataSource]="dataSource" matSort>
+  <ng-container matColumnDef="select">
+    <mat-header-cell *matHeaderCellDef>
+      <mat-checkbox (change)="masterToggle()"></mat-checkbox>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <mat-checkbox (change)="checkboxLabel(row)"></mat-checkbox>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="customerName">
+    <mat-header-cell *matHeaderCellDef mat-sort-header
+      >Customer Name</mat-header-cell
+    >
+    <mat-cell *matCellDef="let row">{{ row.customerName }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="registrationDate">
+    <mat-header-cell *matHeaderCellDef mat-sort-header
+      >Registration Date</mat-header-cell
+    >
+    <mat-cell *matCellDef="let row">{{ row.registrationDate | date }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="address">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Address</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.address }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="mobileNumber">
+    <mat-header-cell *matHeaderCellDef mat-sort-header
+      >Mobile Number</mat-header-cell
+    >
+    <mat-cell *matCellDef="let row">{{ row.mobileNumber }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="gstNumber">
+    <mat-header-cell *matHeaderCellDef mat-sort-header
+      >GST Number</mat-header-cell
+    >
+    <mat-cell *matCellDef="let row">{{ row.gstNumber }}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

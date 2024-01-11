@@ -1,0 +1,59 @@
+<h1 mat-dialog-title>Add Customer</h1>
+<div mat-dialog-content [formGroup]="customerForm" class="customer-form">
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Customer Name"
+      formControlName="customerName"
+    />
+    <mat-error *ngIf="customerForm.get('customerName')?.hasError('required')"
+      >Customer Name is required</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      placeholder="Registration Date"
+      formControlName="registrationDate"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error
+      *ngIf="customerForm.get('registrationDate')?.hasError('required')"
+      >Registration Date is required</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field>
+    <textarea
+      matInput
+      placeholder="Address"
+      formControlName="address"
+    ></textarea>
+    <mat-error *ngIf="customerForm.get('address')?.hasError('required')"
+      >Address is required</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Mobile Number"
+      formControlName="mobileNumber"
+    />
+    <mat-error *ngIf="customerForm.get('mobileNumber')?.hasError('required')"
+      >Mobile Number is required</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="GST Number" formControlName="gstNumber" />
+    <mat-error *ngIf="customerForm.get('gstNumber')?.hasError('required')"
+      >GST Number is required</mat-error
+    >
+  </mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+  <button color="primary" mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSaveClick()">
+    Save
+  </button>
+</div>
