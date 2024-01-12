@@ -1,14 +1,24 @@
 <div class="flex justify-end align-center">
-  <button mat-raised-button color="primary" (click)="openAddDialog()">Add</button>
+  <button mat-raised-button color="primary" (click)="openAddDialog()">
+    Add
+  </button>
+  &nbsp;&nbsp;
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="selectedCustomers.length === 0"
+    (click)="deleteSelectedCustomers()"
+  >
+    Delete
+  </button>
 </div>
-
 <mat-table [dataSource]="dataSource" matSort>
   <ng-container matColumnDef="select">
     <mat-header-cell *matHeaderCellDef>
-      <mat-checkbox (change)="masterToggle()"></mat-checkbox>
+      <mat-checkbox (change)="masterToggle($event)"></mat-checkbox>
     </mat-header-cell>
     <mat-cell *matCellDef="let row">
-      <mat-checkbox (change)="checkboxLabel(row)"></mat-checkbox>
+      <mat-checkbox [checked]="isSelected(row.id)" (change)="checkboxLabel(row, $event)"></mat-checkbox>
     </mat-cell>
   </ng-container>
 
