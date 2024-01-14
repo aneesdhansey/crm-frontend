@@ -21,8 +21,8 @@ export class CustomerFormDialogComponent implements OnInit {
       customerName: ['', Validators.required],
       registrationDate: [null, Validators.required],
       address: [''],
-      mobileNumber: ['', Validators.required],
-      gstNumber: ['', Validators.required],
+      mobileNumber: ['', [Validators.required, Validators.maxLength(10)]],
+      gstNumber: ['', [Validators.required, Validators.maxLength(15)]],
     });
   }
 
@@ -34,6 +34,8 @@ export class CustomerFormDialogComponent implements OnInit {
     if (this.customerForm.valid) {
       const newCustomer = this.customerForm.value;
       this.dialogRef.close(newCustomer);
+    } else {
+      alert('Please make sure all required fields are filled in and have valid values.');
     }
   }
 }

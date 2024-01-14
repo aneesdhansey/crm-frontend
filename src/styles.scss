@@ -17,6 +17,10 @@ body {
   &.align-center {
     align-items: center;
   }
+
+  &.gap-10 {
+    gap: 10px;
+  }
 }
 
 .row {

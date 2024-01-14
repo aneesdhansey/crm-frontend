@@ -43,11 +43,17 @@
     <mat-error *ngIf="customerForm.get('mobileNumber')?.hasError('required')"
       >Mobile Number is required</mat-error
     >
+    <mat-error *ngIf="customerForm.get('mobileNumber')?.hasError('maxlength')"
+      >Mobile Number can have at most 10 digits</mat-error
+    >
   </mat-form-field>
   <mat-form-field>
     <input matInput placeholder="GST Number" formControlName="gstNumber" />
     <mat-error *ngIf="customerForm.get('gstNumber')?.hasError('required')"
       >GST Number is required</mat-error
+    >
+    <mat-error *ngIf="customerForm.get('gstNumber')?.hasError('maxlength')"
+      >GST Number can have at most 15 digits</mat-error
     >
   </mat-form-field>
 </div>
